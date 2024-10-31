@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pestañas</title>
+    <title>Pestañas - Servicios y Precios</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Servicios y Precios</h1>
+        <nav>
+            <ul>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section>
+    <section id="servicios">
+        <h2>Nuestros Servicios</h2>
         <table>
             <thead>
                 <tr>
@@ -39,11 +48,51 @@
             </tbody>
         </table>
     </section>
+    <div id="listaReservas" class="reservas-container">
+        <h2>Reservas Confirmadas</h2>
+        <ul id="reservasList"></ul>
+    </div>
+
+    <section id="testimonios">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <blockquote>
+            <p>"El lifting de pestañas cambió completamente mi mirada Estoy encantada"</p>
+            <footer>- Ana G.</footer>
+        </blockquote>
+        <blockquote>
+            <p>"El laminado es increíble, mis pestañas se ven más saludables que nunca"</p>
+            <footer>- Laura M.</footer>
+        </blockquote>
+    </section>
+
+    <section id="galeria">
+        <h2>Nuestra Galería</h2>
+        <div class="galeria">
+            <img src="imagen1.jpg" alt="Lifting de Pestañas">
+            <img src="imagen2.jpg" alt="Laminado de Pestañas">
+            <img src="imagen3.jpg" alt="Resultado de Servicios">
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 
     <footer>
         <p>&copy; 2024 Servicios de Belleza</p>
     </footer>
-
 
     <script src="/javascript/main.js"></script>
 </body>

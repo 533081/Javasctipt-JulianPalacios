@@ -1,113 +1,109 @@
-/*Un calendario para agendar turnos en una estetica*/ 
+/*Un calendario para agendar turnos en una estetica*/
+// Arreglo de objetos con los meses y la cantidad de días
+const meses = [
+    { nombre: "Enero", dias: 31 },
+    { nombre: "Febrero", dias: 28 }, 
+    { nombre: "Marzo", dias: 31 },
+    { nombre: "Abril", dias: 30 },
+    { nombre: "Mayo", dias: 31 },
+    { nombre: "Junio", dias: 30 },
+    { nombre: "Julio", dias: 31 },
+    { nombre: "Agosto", dias: 31 },
+    { nombre: "Septiembre", dias: 30 },
+    { nombre: "Octubre", dias: 31 },
+    { nombre: "Noviembre", dias: 30 },
+    { nombre: "Diciembre", dias: 31 }
+];
 
-let mes = parseInt(prompt("¿Que mes quieres reservar?"));
-let dia = parseInt(prompt("¿Que día quieres reservar?"));
-let hora = parseInt(prompt("¿A qué hora quieres reservar?"));
+
+const diasFestivos = ["2024-01-01", "2024-12-25"]; 
 
 
-if(mes => 1 && mes <= 12){
-    function fecha(mes,dia,_hora ){
-        switch(mes)
-        {
-        
-                case 1:
-                if(dia >= 1 && dia <= 31){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Enero";
-                }
-                else{
-                    return "elija un dia valido"
-                    
-                }
-            case 2:
-                if(dia >= 1 && dia <=29){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Febrero";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 3:
-                if(dia >= 1 && dia <=31){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Marzo";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 4:
-                if(dia >= 1 && dia <=30){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Abril";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 5:
-                if(dia >= 1 && dia <=31){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Mayo";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 6:
-                if(dia >= 1 && dia <=30){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Junio";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 7:
-                if(dia >= 1 && dia <=31){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Julio";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 8:
-                if(dia >= 1 && dia <=30){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Agosto";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 9:
-                if(dia >= 1 && dia <=31){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Septiembre";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 10:
-                if(dia >= 1 && dia <=30){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las "+ hora + " de Octubre";
-                }else{
-                    return "elija un dia valido"
-                }
-            case 11:
-                if(dia >= 1 && dia <=31){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las  "+ hora + " de Noviembre";
-                }else{
-                    return "elija un dia valido"
-                    
-                }
-            case 12:
-                if(dia >= 1 && dia <=30){
-                    if(hora >= 0 && hora <= 23){}
-                    return "reservaste el dia " + dia + " a las "+ hora +" de Diciembre";
-                }else{
-                    return "elija un dia valido"
-                }
-        }
+let reservas = [];
+
+
+const validarDia = (dia, maxDias) => dia >= 1 && dia <= maxDias;
+const validarHora = (hora) => hora >= 0 && hora <= 23;
+
+
+const esBisiesto = (year) => (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+
+
+const esFestivo = (fecha) => diasFestivos.includes(fecha.toISOString().split('T')[0]);
+
+
+const turnoOcupado = (fecha, hora) => reservas.some(reserva => reserva.fecha.getTime() === fecha.getTime() && reserva.hora === hora);
+
+// Función para reservar turno
+function reservarTurno() {
+    let year = parseInt(prompt("¿En qué año quieres reservar?"));
+    let mes = parseInt(prompt("¿Qué mes quieres reservar? (1-12)")) - 1;
+    let dia = parseInt(prompt("¿Qué día quieres reservar?"));
+    let hora = parseInt(prompt("¿A qué hora quieres reservar? (0-23)"));
+
+    if (mes < 0 || mes > 11) {
+        alert("Elija un mes válido (1-12)");
+        return;
     }
 
-}else{
-    alert("Elija un mes valido")
+    // Ajustar días de febrero si el año es bisiesto
+    let maxDias = meses[mes].dias;
+    if (mes === 1 && esBisiesto(year)) maxDias = 29;
 
-}
-while (mes != null && dia != null){
-    let mensaje = fecha(mes, dia);
+    if (!validarDia(dia, maxDias)) {
+        alert("Elija un día válido para el mes de " + meses[mes].nombre);
+        return;
+    }
+
+    if (!validarHora(hora)) {
+        alert("Elija una hora válida (0-23)");
+        return;
+    }
+
+   
+    let fecha = new Date(year, mes, dia);
+
     
+    if (esFestivo(fecha)) {
+        alert("No se puede reservar en días festivos.");
+        return;
+    }
 
-    alert (mensaje);
-    break;
+    
+    if (turnoOcupado(fecha, hora)) {
+        alert("Ese turno ya está reservado. Elige otro horario.");
+        return;
+    }
+
+    
+    reservas.push({ fecha: fecha, hora: hora });
+    alert(`Reserva confirmada para el ${dia} de ${meses[mes].nombre} de ${year} a las ${hora}:00 horas`);
 }
+
+
+function mostrarReservas() {
+    const lista = document.getElementById("reservasList");
+    lista.innerHTML = ""; // Limpiar contenido previo
+
+    if (reservas.length === 0) {
+        lista.innerHTML = "<li>No hay reservas registradas.</li>";
+    } else {
+        reservas.forEach(reserva => {
+            const opcionesFecha = { year: 'numeric', month: 'long', day: 'numeric' };
+            const fechaTexto = reserva.fecha.toLocaleDateString('es-ES', opcionesFecha);
+
+            // Crear un elemento de lista para cada reserva
+            const reservaItem = document.createElement("li");
+            reservaItem.className = "reserva-item";
+            reservaItem.innerHTML = `
+                <p class="reserva-fecha">Fecha: ${fechaTexto}</p>
+                <p class="reserva-hora">Hora: ${reserva.hora}:00</p>
+            `;
+            lista.appendChild(reservaItem);
+        });
+    }
+}
+
+
+reservarTurno(); 
+mostrarReservas(); 

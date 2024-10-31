@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "julianpalacios1",
+			"path": "../../julianpalacios1"
+		},
+		{
+			"name": "javascript",
+			"path": "../../javascript"
+		},
+		{
+			"name": "JulianPalaciosJS",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "javascript"
+	}
+}
