@@ -83,7 +83,7 @@ function reservarTurno() {
 
 function mostrarReservas() {
     const lista = document.getElementById("reservasList");
-    lista.innerHTML = ""; // Limpiar contenido previo
+    lista.innerHTML = ""; 
 
     if (reservas.length === 0) {
         lista.innerHTML = "<li>No hay reservas registradas.</li>";
