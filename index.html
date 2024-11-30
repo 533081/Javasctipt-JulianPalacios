@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pestañas - Servicios y Precios</title>
+    <title>Adhara Estética</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Incluir el CSS de Toastify -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
+
 <body>
+    <!-- Header con navegación -->
     <header>
-        <h1>Servicios y Precios</h1>
+        <div class="logo">
+            <h1>Adhara Estética</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="#servicios">Servicios</a></li>
@@ -19,7 +26,8 @@
         </nav>
     </header>
 
-    <section id="servicios">
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="section">
         <h2>Nuestros Servicios</h2>
         <table>
             <thead>
@@ -32,49 +40,83 @@
             <tbody>
                 <tr>
                     <td>Lifting de Pestañas</td>
-                    <td>Eleva y riza las pestañas de forma natural.</td>
+                    <td>Alarga y curva hacia arriba las pestañas de manera natural y duradera.</td>
                     <td>$50</td>
                 </tr>
                 <tr>
-                    <td>Laminado de Pestañas</td>
-                    <td>Hidrata y nutre las pestañas, mejorando su apariencia y definición.</td>
+                    <td>Laminado de Cejas</td>
+                    <td>Fija el pelo logrando un efecto de ceja peinada, con un aspecto uniforme y elegante.</td>
                     <td>$60</td>
                 </tr>
                 <tr>
-                    <td>Paquete Lifting + Laminado</td>
-                    <td>Combo que incluye lifting y laminado para un look completo.</td>
+                    <td>Combo Lifting + Laminado</td>
+                    <td>Incluye lifting y laminado para un look completo.</td>
                     <td>$100</td>
                 </tr>
             </tbody>
         </table>
     </section>
+
+    <!-- Sección de Reserva de Turnos -->
+    <section id="reservas" class="section">
+        <h2>Realizar Reserva</h2>
+        <form id="formReserva">
+            <label for="year">Año:</label>
+            <input type="number" id="year" name="year" min="2024" required><br>
+
+            <label for="mes">Mes:</label>
+            <select id="mes" name="mes">
+                <option value="0">Enero</option>
+                <option value="1">Febrero</option>
+                <option value="2">Marzo</option>
+                <option value="3">Abril</option>
+                <option value="4">Mayo</option>
+                <option value="5">Junio</option>
+                <option value="6">Julio</option>
+                <option value="7">Agosto</option>
+                <option value="8">Septiembre</option>
+                <option value="9">Octubre</option>
+                <option value="10">Noviembre</option>
+                <option value="11">Diciembre</option>
+            </select><br>
+
+            <label for="dia">Día:</label>
+            <input type="number" id="dia" name="dia" required><br>
+
+            <label for="hora">Hora:</label>
+            <input type="number" id="hora" name="hora" min="0" max="23" required><br>
+
+            <button type="submit">Reservar</button>
+        </form>
+    </section>
+
+    <!-- Contenedor para mostrar las reservas confirmadas -->
     <div id="listaReservas" class="reservas-container">
         <h2>Reservas Confirmadas</h2>
         <ul id="reservasList"></ul>
     </div>
 
-    <section id="testimonios">
-        <h2>Lo que dicen nuestros clientes</h2>
-        <blockquote>
-            <p>"El lifting de pestañas cambió completamente mi mirada Estoy encantada"</p>
-            <footer>- Ana G.</footer>
-        </blockquote>
-        <blockquote>
-            <p>"El laminado es increíble, mis pestañas se ven más saludables que nunca"</p>
-            <footer>- Laura M.</footer>
-        </blockquote>
-    </section>
-
-    <section id="galeria">
+    <!-- Sección de Galería -->
+    <section id="galeria" class="section">
         <h2>Nuestra Galería</h2>
         <div class="galeria">
-            <img src="imagen1.jpg" alt="Lifting de Pestañas">
-            <img src="imagen2.jpg" alt="Laminado de Pestañas">
-            <img src="imagen3.jpg" alt="Resultado de Servicios">
+            <div class="item">
+                <img src="./assets/lifting.jpg" alt="Lifting de Pestañas" />
+                <p class="descripcion">Lifting de Pestañas</p>
+            </div>
+            <div class="item">
+                <img src="./assets/laminado.jpg" alt="Laminado de Cejas" />
+                <p class="descripcion">Laminado de Cejas</p>
+            </div>
+            <div class="item">
+                <img src="./assets/perfilado.jpg" alt="Perfilado de Cejas" />
+                <p class="descripcion">Perfilado de Cejas</p>
+            </div>
         </div>
     </section>
 
-    <section id="contacto">
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="section">
         <h2>Contacto</h2>
         <form>
             <label for="nombre">Nombre:</label>
@@ -91,9 +133,17 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 Servicios de Belleza</p>
+        <p>&copy; 2024 Adhara Estética</p>
     </footer>
 
-    <script src="/javascript/main.js"></script>
+    <!-- Contenedor para mostrar el mensaje de "Cargando..." -->
+    <div id="mensajeCargando" style="display: none;">
+        <p>Cargando...</p>
+    </div>
+
+    <!-- Incluir el archivo de JavaScript con el código de reservas -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script> <!-- Toastify -->
+    <script type="module" src="/Javascript/main.js"></script> <!-- Tu JS -->
 </body>
+
 </html>

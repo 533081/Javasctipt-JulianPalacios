@@ -1,22 +1,30 @@
+/* Estilo general del body */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
 }
 
-
+/* Encabezado */
 header {
-    background-color: #da86c1;
+    background-color: #9b59b6; /* Violeta */
     color: white;
-    padding: 10px 0;
+    padding: 20px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
 
+/* Navegación */
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 10px 0;
 }
 
 nav ul li {
@@ -30,100 +38,147 @@ nav a {
     font-weight: bold;
 }
 
-
-section {
-    padding: 20px;
+nav a:hover {
+    color: #da86c1; /* Rosa suave */
 }
 
+/* Sección de Servicios */
+#servicios {
+    padding: 40px 20px;
+    background-color: #f7f1fa; /* Fondo suave rosa */
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+#servicios h2 {
+    font-size: 2.5em;
+    color: #6c4f99; /* Violeta */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
+    margin-top: 20px;
 }
 
 th, td {
-    padding: 8px;
-    text-align: left;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
 }
 
 th {
+    background-color: #9b59b6; /* Violeta claro */
+    color: white;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-
-blockquote {
-    border-left: 4px solid #da86c1;
-    padding-left: 10px;
-    margin: 10px 0;
-    font-style: italic;
+tbody tr:nth-child(odd) {
+    background-color: #fff;
 }
 
-
-.galeria {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+tbody tr:hover {
+    background-color: #f7f1fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.galeria img {
-    width: 30%;
-    height: auto;
-    margin-bottom: 10px;
+td {
+    color: #333;
+    font-size: 1em;
 }
 
+td:last-child {
+    font-weight: bold;
+    color: #9b59b6; /* Violeta para el precio */
+}
+
+th, td {
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* Sección de Reservas */
+#reservas {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+#reservas h2 {
+    text-align: center;
+    color: #6c4f99; /* Violeta */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
 
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 label {
-    margin-bottom: 5px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
 }
 
-input, textarea {
-    margin-bottom: 15px;
+input, select {
     padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-radius: 5px;
     border: 1px solid #ddd;
-    border-radius: 4px;
 }
-
 
 button {
-    background-color: #da86c1;
+    background-color: #9b59b6; /* Violeta */
     color: white;
-    padding: 10px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 1.1em;
 }
 
 button:hover {
-    background-color: #da86c1;
+    background-color: #8e44ad; /* Violeta oscuro */
 }
 
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #da86c1;
-    color: white;
-    position: relative;
-    bottom: 0;
+input[type="number"], select {
     width: 100%;
 }
+
+/* Contenedor de reservas */
 .reservas-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .reservas-container h2 {
@@ -158,4 +213,141 @@ footer {
 
 .reserva-hora {
     color: #555;
+}
+.cancelarReserva {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancelarReserva:hover {
+    background-color: #ff4c4c;
+}
+
+/* Sección de Galería */
+#galeria {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
+#galeria h2 {
+    font-size: 2.5em;
+    color: #6c4f99;
+    margin-bottom: 20px;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.item {
+    text-align: center;
+    width: 300px;
+}
+
+.galeria img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+.descripcion {
+    font-size: 1em;
+    color: #555;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Sección de Testimonios */
+#testimonios {
+    padding: 40px 20px;
+    background-color: #f7f1fa;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 4px solid #9b59b6;
+    padding-left: 20px;
+    margin: 20px auto;
+    width: 80%;
+    font-size: 1.2em;
+    color: #555;
+}
+
+blockquote footer {
+    font-size: 1em;
+    color: #6c4f99;
+}
+
+/* Sección de Contacto */
+#contacto {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#contacto h2 {
+    font-size: 2.5em;
+    color: #6c4f99;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    background-color: #9b59b6;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+form button:hover {
+    background-color: #8e44ad;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #9b59b6;
+    color: white;
+    margin-top: 40px;
 }
