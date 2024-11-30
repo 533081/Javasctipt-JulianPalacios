@@ -214,6 +214,7 @@ input[type="number"], select {
 .reserva-hora {
     color: #555;
 }
+<<<<<<< HEAD
 .cancelarReserva {
     margin-left: 10px;
     padding: 5px 10px;
@@ -227,6 +228,8 @@ input[type="number"], select {
 .cancelarReserva:hover {
     background-color: #ff4c4c;
 }
+=======
+>>>>>>> eb6ce70103c4f97a9ec2d6a64f1461466615d6c7
 
 /* Sección de Galería */
 #galeria {
@@ -350,4 +353,8 @@ footer {
     background-color: #9b59b6;
     color: white;
     margin-top: 40px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> eb6ce70103c4f97a9ec2d6a64f1461466615d6c7
